@@ -8,26 +8,25 @@
 
 <body>
     <div id="app">
-    <!-- align to right to confuse people? -->
-    <h1>dog</h1>
-    <p>name: max</p>
-    <p>size: medium</p>
-    <p>some other detail</p>
-    <br />
-    <img :src="{{ thing?? }}" />
-
+        <!-- align to right to confuse people? -->
+        <h1>dog</h1>
+        <p>name: max</p>
+        <p>size: medium</p>
+        <p>some other detail</p>
+        <br />
+        <img :src="{{ thing?? }}" />
     </div>
 
     <script>
-    const { createApp } = Vue;
-    createApp({
-      data() {
-        return {
-          message: 'Welcome to the Dog Walking Service!'
-        };
-      }
-    }).mount('#app');
-  </script>
+        const { createApp } = Vue;
+        createApp({
+        data() {
+            return {
+            message: 'Welcome to the Dog Walking Service!'
+            };
+        }
+        }).mount('#app');
+    </script>
 
 </body>
 </html>
