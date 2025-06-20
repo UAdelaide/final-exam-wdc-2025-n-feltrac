@@ -39,7 +39,7 @@ router.get('/logout', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  req.session.user;
+  req.session.destroy();
   res.redirect("/index.html");
 });
 
@@ -58,8 +58,10 @@ router.post('/login', async (req, res) => {
     }
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
+      req.session.user = { id: 1, username: 'GfG User' };
       res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
     } else {
+      req.session.user = { id: 1, username: 'GfG User' };
       res.json({ redirect: "/walker-dashboard.html" });
     }
     // res.json({ message: 'Login successful', user: rows[0] }); // remove this
