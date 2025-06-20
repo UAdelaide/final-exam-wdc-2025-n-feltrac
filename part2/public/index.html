@@ -68,7 +68,7 @@
         var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs;
         const dogCeoImages = await fetch (dogsString);
         this.dogImgs = await dogCeoImages.json(); // get
-        console.log(this.dogCeoImages.message[0]);
+        console.log(this.dogImgs.message[0]);
       },
       methods: {
             async loginSubmit() {
