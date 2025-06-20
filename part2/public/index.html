@@ -81,10 +81,12 @@
                     username: this.username,
                     password: this.password })
                 });
+                
                 const result = await response.json();
                 if (result.redirect) {
                   window.location.href = result.redirect;
                 }
+            }
         }
     }).mount('#app');
   </script>
