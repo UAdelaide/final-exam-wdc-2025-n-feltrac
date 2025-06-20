@@ -65,7 +65,8 @@
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
         const numDogs = this.dogs.length;
-        const dogCeoImages = await fetch ('https://dog.ceo/api/breeds/image/random/');
+        var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs;
+        const dogCeoImages = await fetch (numDogs);
         this.dogImgs = await dogCeoImages.json(); // get
       },
       methods: {
