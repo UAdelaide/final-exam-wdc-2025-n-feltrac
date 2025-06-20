@@ -72,22 +72,22 @@
         // console.log(this.dogImgs.message[0]);
       },
       methods: {
-            async loginSubmit() {
-                const response = await fetch('/login', {
-                  method: 'POST',
-                  credentials: 'include',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({
-                    username: this.username,
-                    password: this.password })
-                });
-                
-                const result = await response.json();
-                if (result.redirect) {
-                  window.location.href = result.redirect;
-                }
-            }
+        async loginSubmit() {
+          const response = await fetch('/login', {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              username: this.username,
+              password: this.password })
+          });
+
+          const result = await response.json();
+          if (result.redirect) {
+            window.location.href = result.redirect;
+          }
         }
+      }
     }).mount('#app');
   </script>
 
