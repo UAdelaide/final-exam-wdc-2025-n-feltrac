@@ -58,9 +58,9 @@ router.post('/login', async (req, res) => {
     }
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
-      res.json({ redirect: "/owner-dashboard.html" }); // does this actually work
+      res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
     } else {
-      res.json({ redirect: "/walker-dashboard.html" }); // does it work tho
+      res.json({ redirect: "/walker-dashboard.html" });
     }
     // res.json({ message: 'Login successful', user: rows[0] }); // remove this
   } catch (error) {
