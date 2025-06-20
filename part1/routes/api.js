@@ -6,7 +6,7 @@ var db = require('../db');
 router.get('/dogs', async(req, res) => {
   const [rows] = await db.query(`
     SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username FROM Dogs, Users
-    WHERE`);
+    WHERE `);
   res.json(rows);
 });
 
