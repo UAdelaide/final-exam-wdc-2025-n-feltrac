@@ -23,9 +23,20 @@
       <button type="submit" @click="loginSubmit">Login</button>
     </form>
 
-    <table>
-      <!-- dogs and random images go here -->
-    </table>
+    <table class="pure-table pure-table-horizontal">
+          <thead>
+              <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="a in actors" :key="actors.actors_id">
+                  <td>{{ a.first_name }}</td>
+                  <td>{{ a.last_name }}</td>
+              </tr>
+          </tbody>
+        </table>
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a> -->
     <!-- <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
   </div>
