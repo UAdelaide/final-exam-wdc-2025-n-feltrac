@@ -35,14 +35,15 @@
     createApp({
       data() {
         return {
+          dogs: 
           message: 'Welcome to the Dog Walking Service!',
           username: '',
           password: ''
         };
       },
       async mounted() {
-        const response = await fetch('/api/books');
-        this.books = await res.json();
+        const response = await fetch('/api/dogs');
+        this.dogs = await response.json();
       },
       methods: {
             async loginSubmit() {
