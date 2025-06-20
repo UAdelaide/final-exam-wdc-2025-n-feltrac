@@ -62,13 +62,14 @@
         };
       },
       async mounted() {
-        const response = await fetch('/api/dogs');
-        this.dogs = await response.json();
         const numDogs = this.dogs.length;
         var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs;
         const dogCeoImages = await fetch (dogsString);
         this.dogImgs = await dogCeoImages.json(); // get
         console.log(this.dogImgs.message[0]);
+        const response = await fetch('/api/dogs');
+        this.dogs = await response.json();
+
       },
       methods: {
             async loginSubmit() {
