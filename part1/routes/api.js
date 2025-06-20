@@ -25,7 +25,7 @@ router.get('/walkers/summary', async(req, res) => {
     SELECT Users.username AS walker_username,
     COUNT(SELECT * FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id
     WHERE Users.role = "walker"),
-    
+    avg AS average_rating, completed_walks
     FROM WalkRequests INNER JOIN Users ON Dogs.owner_id = Users.user_id
     WHERE User.role = 'walker'`);
   res.json(rows);
