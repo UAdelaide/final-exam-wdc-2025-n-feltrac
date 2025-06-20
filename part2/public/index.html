@@ -41,7 +41,8 @@
         };
       },
       async mounted() {
-        
+        const response = await fetch('/api/books');
+        this.books = await res.json();
       },
       methods: {
             async loginSubmit() {
