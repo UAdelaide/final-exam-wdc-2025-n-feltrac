@@ -63,6 +63,7 @@
       async mounted() {
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
+        console.log(dogs.length);
       },
       methods: {
             async loginSubmit() {
