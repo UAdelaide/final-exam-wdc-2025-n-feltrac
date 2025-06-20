@@ -64,8 +64,8 @@
       async mounted() {
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
-        // console.log(this.dogs.length);
-        const dogCeoImages = await fetch ('https://dog.ceo/api/breeds/image/random');
+        const numDogs = this.dogs.length;
+        const dogCeoImages = await fetch ('https://dog.ceo/api/breeds/image/random/');
         this.dogImgs = await dogCeoImages.json(); // get
       },
       methods: {
