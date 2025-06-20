@@ -29,12 +29,15 @@
           <tr>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Last Name</th>
+              <th>Last Name</th>
+              <th>Last Name</th>
           </tr>
       </thead>
       <tbody>
           <tr v-for="d in dogs" :key="dogs.dog_id">
-              <td>{{ a.first_name }}</td>
-              <td>{{ a.last_name }}</td>
+              <td>{{ d.dog_id }}</td>
+              <td>{{ d.last_name }}</td>
               <td>{{ a.last_name }}</td>
               <td>{{ a.last_name }}</td>
               <td>{{ a.last_name }}</td>
