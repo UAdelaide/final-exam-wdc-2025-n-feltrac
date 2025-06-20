@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
     }
     // redirect here if owner or walker
     if(rows.role === "owner") {
-      res.redirect("owne")
+      res.redirect("/owner-dashboard.html");
     } else {
       // redir to walker
     }
