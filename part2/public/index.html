@@ -22,7 +22,7 @@
       <p>Password</p>
       <input type="text" v-model="password" placeholder="enter password" />
       <br />
-      <button type="submit" @click="loginSubmit">Login</button>
+      <button type="submit" @click.prevent="loginSubmit">Login</button>
     </form>
 
     <table class="pure-table pure-table-horizontal">
