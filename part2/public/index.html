@@ -42,6 +42,8 @@
             async loginSubmit() {
                 const response = await fetch('/login', {
                   method: 'POST',
+                  credentials: 'include',
+                  headers: { ''}
                 });
             }
         }
