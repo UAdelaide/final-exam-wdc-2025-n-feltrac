@@ -22,7 +22,7 @@ router.get('/walkrequests/open', async(req, res) => {
 
 router.get('/walkers/summary', async(req, res) => {
   const [rows] = await db.query(`
-    SELECT Users.walker_username, COUNT(SELECT * FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE)
+    SELECT Users.walker_username, COUNT(SELECT * FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE )
     FROM WalkRequests INNER JOIN Users ON Dogs.owner_id = Users.user_id
     WHERE User.role = 'walker'`);
   res.json(rows);
