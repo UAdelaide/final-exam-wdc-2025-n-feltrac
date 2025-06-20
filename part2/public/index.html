@@ -64,7 +64,7 @@
       async mounted() {
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
-
+        console.log(this.dogs.length);
         const numDogs = this.dogs.length;
         var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // get x many dogs
         const dogCeoImages = await fetch(dogsString);
