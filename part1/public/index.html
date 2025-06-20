@@ -14,5 +14,17 @@
     <p>some other detail</p>
     <br />
     <img :src="{{ thing?? }}" />
+
+    <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          message: 'Welcome to the Dog Walking Service!'
+        };
+      }
+    }).mount('#app');
+  </script>
+  
 </body>
 </html>
