@@ -40,7 +40,9 @@
       },
       methods: {
             async loginSubmit() {
-                const response = await fetch('/login');
+                const response = await fetch('/login', {
+                  method: 'POST',
+                });
             }
         }
     }).mount('#app');
