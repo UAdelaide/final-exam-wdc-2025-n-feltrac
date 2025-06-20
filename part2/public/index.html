@@ -65,8 +65,8 @@
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
         // console.log(this.dogs.length);
-        const dogCeoImages = await fetch('/api/dogs');
-        this.dogs = await response.json();
+        const response = await fetch ('https://dog.ceo/api/breeds/image/random');
+                this.imageSrc = await response.json();
       },
       methods: {
             async loginSubmit() {
