@@ -17,4 +17,11 @@ router.get('/walkrequests/open', async(req, res) => {
   res.json(rows);
 });
 
+router.get('/walkers/summary', async(req, res) => {
+  const [rows] = await db.query(`
+    SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username AS owner_username
+    FROM WalkRequests INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
+  res.json(rows);
+});
+
 module.exports = router;
