@@ -73,7 +73,7 @@
       },
       methods: {
         async loginSubmit() {
-          const response = await fetch('/login', {
+          const response = await fetch('/api/users/login', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
