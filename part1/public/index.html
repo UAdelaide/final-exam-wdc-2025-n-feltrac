@@ -8,13 +8,13 @@
 
 <body style="background-color: darkblue;">
     <div id="app">
-        <!-- align to right to confuse people? -->
+        <!-- align to right to confuse people -->
         <h1 style="text-align: right;">dog</h1>
         <p style="text-align: right;">name: max</p>
         <p style="text-align: right;">size: medium</p>
         <p style="text-align: right;">owner username: alice123</p>
         <br />
-        <!-- EVILLY added no alt text -->
+        <!-- no alt text -->
         <img v-if="imageSrc" :src="imageSrc.message" />
         <button type="button" @click="fetchDog">load dog</button>
     </div>
