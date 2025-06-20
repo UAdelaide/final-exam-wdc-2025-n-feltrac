@@ -12,10 +12,10 @@ router.get('/dogs', async(req, res) => {
 
 router.get('/walkrequests/open', async(req, res) => {
   const [rows] = await db.query(`
-    SELECT WalkRequests.*, d.name AS dog_name, d.size, u.username AS owner_name
+    SELECT WalkRequests.*, Dogs.name AS dog_name, Dogs.size, u.username AS owner_name
     FROM WalkRequests
-    JOIN Dogs d ON WalkRequests.dog_id = d.dog_id
-    JOIN Users u ON d.owner_id = u.user_id
+    JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
+    JOIN Users u ON Dogs.owner_id = u.user_id
       WHERE WalkRequests.status = 'open'`);
   res.json(rows);
 });
