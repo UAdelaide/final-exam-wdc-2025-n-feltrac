@@ -39,7 +39,7 @@
         };
       },
       methods: {
-            async fetchDog() {
+            async loginSubmit() {
                 const response = await fetch ('https://dog.ceo/api/breeds/image/random');
                 this.imageSrc = await response.json();
             }
