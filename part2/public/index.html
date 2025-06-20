@@ -38,9 +38,11 @@
           message: 'Welcome to the Dog Walking Service!'
         };
       },
-      methods:
-        loginFormSubmit() {
-          const login;
+      methods: {
+            async fetchDog() {
+                const response = await fetch ('https://dog.ceo/api/breeds/image/random');
+                this.imageSrc = await response.json();
+            }
         }
     }).mount('#app');
   </script>
