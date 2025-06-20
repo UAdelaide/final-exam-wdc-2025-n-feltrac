@@ -15,7 +15,7 @@
         <p>some other detail</p>
         <br />
         <!-- no alt text -->
-        <img :src="imageSrc.message" />
+        <img v-model :src="imageSrc.message" />
         <button type="button" @click="fetchDog">load dog</button>
     </div>
 
