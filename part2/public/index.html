@@ -12,7 +12,7 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
-    <form @submit.prevent="loginSubmit">
+    <form>
       <p>Username</p>
       <input type="text" placeholder="enter username" />
       <br />
@@ -20,7 +20,7 @@
       <p>Password</p>
       <input type="text" placeholder="enter password" />
       <br />
-      <button type="submit">Login</button>
+      <button type="submit" @click="loginSubmit">Login</button>
     </form>
 
     <table>
