@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
     }
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
-      req.session.user = { id: 1, username: 'GfG User' };
+      req.session.user = { id: rows[0].user_id, username: 'GfG User' };
       res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
     } else {
       req.session.user = { id: 1, username: 'GfG User' };
