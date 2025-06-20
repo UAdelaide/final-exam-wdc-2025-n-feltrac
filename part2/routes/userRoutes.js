@@ -56,6 +56,8 @@ router.post('/login', async (req, res) => {
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
+    // store session stuff
+    req.session.user = { id: rows[0].user_id, username: rows[0].username };
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
       res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
