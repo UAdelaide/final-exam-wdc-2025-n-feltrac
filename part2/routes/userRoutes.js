@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
     if(rows.role === "owner") {
       // redirect ot owner
     } else {
-      
+      // redir to walker
     }
     res.json({ message: 'Login successful', user: rows[0] }); // remove this
   } catch (error) {
