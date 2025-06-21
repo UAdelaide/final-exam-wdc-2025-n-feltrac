@@ -61,7 +61,7 @@
           password: ''
         };
       },
-      async mounted() {
+      async mounted() { // run when vue app starts and page is loaded
         const response = await fetch('/api/dogs');
         this.dogs = await response.json();
         console.log(this.dogs.length);
