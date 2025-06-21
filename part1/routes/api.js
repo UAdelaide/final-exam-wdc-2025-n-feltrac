@@ -8,9 +8,10 @@ router.get('/dogs', async(req, res) => {
     const [rows] = await db.query(`
     SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs
     INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
-  res.json(rows);
+    if
+    res.json(rows);
   } catch (error) {
-    res.json({ message: "no dogs found in database!" });
+    res.json({ message: "an error occurred" });
   }
 });
 
