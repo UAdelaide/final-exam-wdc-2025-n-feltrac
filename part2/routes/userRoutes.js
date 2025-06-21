@@ -37,10 +37,10 @@ router.get('/me', (req, res) => { // shows session!
 
 router.post('/logout', (req, res) => {
   if (!req.session.user) { // if there is no user session:
-    return res.status(401).json({ error: 'Not logged in' });
+    return res.status(401).json({ error: 'Not logged in' }); // return an error message if not logged in
   }
-  req.session.destroy();
-  res.json({ redirect: "/" });
+  req.session.destroy(); // delete session token
+  res.json({ redirect: "/" }); // redirect user back to homepage
 });
 
 // POST login (dummy version)
