@@ -12,8 +12,8 @@ router.get('/dogs', async(req, res) => {
     } else { // if 1 or more rows were returned from db query:
       res.json(rows); // return the data from the db query
     }
-  } catch (error) {
-    res.json({ message: "an error occurred" });
+  } catch (error) { // if there was an error:
+    res.json({ message: "an error occurred" }); // send error message to display as json
   }
 });
 
