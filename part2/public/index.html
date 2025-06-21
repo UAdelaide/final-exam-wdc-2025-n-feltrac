@@ -76,7 +76,7 @@
           const response = await fetch('/api/users/login', { // get the login route
             method: 'POST', // post request because it is not repeatable, cant login while logged in
             credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }, // the route can expect json
             body: JSON.stringify({
               username: this.username,
               password: this.password })
