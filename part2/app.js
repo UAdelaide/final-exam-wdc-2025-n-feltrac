@@ -34,9 +34,11 @@ let db;
     // Now connect to the created database
     db = await mysql.createConnection({
       host: 'localhost',
-      user: 'root',
-      password: 'root',
-      database: 'DogWalkService'
+    user: 'root',
+    database: 'DogWalkService',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
     });
 
     await db.execute(`
