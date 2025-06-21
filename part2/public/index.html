@@ -79,10 +79,10 @@
             headers: { 'Content-Type': 'application/json' }, // the route can expect json
             body: JSON.stringify({ // send v-model username and password to route as json
               username: this.username, // sends the username in the data() above
-              password: this.password })
+              password: this.password }) // sends the password in the data() above
           });
 
-          const result = await response.json();
+          const result = await response.json(); // waits for route to 
           if (result.redirect) {
             window.location.href = result.redirect; // go to redirect location
           }
