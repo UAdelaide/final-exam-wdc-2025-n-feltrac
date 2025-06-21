@@ -91,22 +91,6 @@
           }
         }
 
-        async function logout() {
-          const response = await fetch('/api/users/login', {
-            method: 'POST',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' }
-            // body: JSON.stringify({
-            //   username: this.username,
-            //   password: this.password })
-          });
-
-          const result = await response.json();
-          if (result.redirect) {
-            window.location.href = result.redirect; // go to redirect location
-          }
-        }
-
         async function submitWalkRequest() {
           try {
             const res = await fetch('/api/walks', {
