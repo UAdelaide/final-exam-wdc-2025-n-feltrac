@@ -97,7 +97,8 @@
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              logout: "ok" })
+              username: this.username,
+              password: this.password })
           });
 
           const result = await response.json();
