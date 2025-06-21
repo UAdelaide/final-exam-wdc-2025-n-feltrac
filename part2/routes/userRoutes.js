@@ -60,9 +60,9 @@ router.post('/login', async (req, res) => {
     req.session.user = { id: rows[0].user_id, username: rows[0].username };
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
-      res.status(205).json({ redirect: "/owner-dashboard.html" }); // send redirect location back
+      res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
     } else {
-      res.status(206).json({ redirect: "/walker-dashboard.html" });
+      res.json({ redirect: "/walker-dashboard.html" });
     }
     // res.json({ message: 'Login successful', user: rows[0] }); // remove this
   } catch (error) {
