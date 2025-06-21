@@ -41,11 +41,7 @@
 
     createApp({
       setup() {
-        var dogs = ref([]);
-        var dogImgs = ref({ message: [] });
-        var message = ref('Welcome to the Dog Walking Service!');
-        var username = ref('');
-        var password = ref('');
+        var imageSrc = ref([]);
 
         async function fetchDog() {
                 const response = await fetch ('https://dog.ceo/api/breeds/image/random');
