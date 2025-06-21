@@ -35,6 +35,7 @@
         }
         }).mount('#app');
     </script>
+
     <script>
     const { createApp, ref, onMounted } = Vue;
 
@@ -46,16 +47,10 @@
         var username = ref('');
         var password = ref('');
 
-        async function getDogs() {
-          const response = await fetch('/api/dogs'); // get dogs route to get dog data
-          dogs.value = await response.json(); // set the v-model dogs var to the dog data from internal api call
-          // console.log(this.dogs.length);
-          const numDogs = dogs.value.length; // get the number of dogs in the database so we can get the right no. of pics
-          var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // concat num so we get right no. in url
-          const dogCeoImages = await fetch(dogsString); // fetch x number of random pics from dog.ceo
-          dogImgs.value = await dogCeoImages.json(); // set the received images to the v-model dogs variable to use in html
-          // console.log(this.dogImgs.message[0]);
-        }
+        async function fetchDog() {
+                const response = await fetch ('https://dog.ceo/api/breeds/image/random');
+                this.imageSrc = await response.json();
+            }
 
         async function loginSubmit() {
           const response = await fetch('/api/users/login', { // get the login route
