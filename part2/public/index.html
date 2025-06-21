@@ -81,8 +81,8 @@
               password: password.value }) // sends the password in the data() above
             });
 
-            const result = await response.json(); // waits for route to return something to this function
-            if (result.redirect) { // if the result came back with something for .redirect
+            const result.value = await response.json(); // waits for route to return something to this function
+            if (result.value.redirect) { // if the result came back with something for .redirect
               window.location.href = result.redirect; // go to redirect location (owner/walker-dashboard.html)
             }
         }
