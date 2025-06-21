@@ -96,9 +96,9 @@
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              username: this.username,
-              password: this.password })
+            // body: JSON.stringify({
+            //   username: this.username,
+            //   password: this.password })
           });
 
           const result = await response.json();
