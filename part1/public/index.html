@@ -26,7 +26,7 @@
 
         createApp({
         setup() {
-            var imageSrc = ref([]); // 
+            var imageSrc = ref([]); // the imageSrc will be an object, so needs to have ([])
 
             async function fetchDog() {
                 const response = await fetch ('https://dog.ceo/api/breeds/image/random');
