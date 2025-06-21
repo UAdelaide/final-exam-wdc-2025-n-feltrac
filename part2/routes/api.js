@@ -9,8 +9,8 @@ router.get('/dogs', async(req, res) => {
     INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
     if(rows.length === 0) { // if there are no rows returned
       res.json({ message: "no dogs found in database!" }); // no dogs were found
-    } else {
-      res.json(rows);
+    } else { // if 1 or more rows were returned from db query:
+      res.json(rows); // return the data from the db query
     }
   } catch (error) {
     res.json({ message: "an error occurred" });
