@@ -36,7 +36,7 @@ router.get('/walkrequests/open', async(req, res) => {
   }
 });
 
-router.get('/walkers/summary', async(req, res) => { ////////////////
+router.get('/walkers/summary', async(req, res) => { // not done //////////////
   const [rows] = await db.query(`
     SELECT Users.username AS walker_username,
     COUNT(SELECT * FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id
