@@ -92,8 +92,8 @@
         }
 
         async function logout() { // logout function for button
-          const response = await fetch('/api/users/logout', { //send request to 
-            method: 'POST',
+          const response = await fetch('/api/users/logout', { //send request to correct route
+            method: 'POST', // use a post request because logging out isnt repeatable
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ })
