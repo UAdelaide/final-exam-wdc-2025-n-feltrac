@@ -64,10 +64,10 @@
           const response = await fetch('/api/dogs'); // get dogs route to get dog data
           dogs.value = await response.json(); // set the v-model dogs var to the dog data from internal api call
           // console.log(this.dogs.length);
-          const numDogs = dogs.length; // get the number of dogs in the database so we can get the right no. of pics
+          const numDogs = dogs.value.length; // get the number of dogs in the database so we can get the right no. of pics
           var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // concat num so we get right no. in url
           const dogCeoImages = await fetch(dogsString); // fetch x number of random pics from dog.ceo
-          dogImgs = await dogCeoImages.json(); // set the received images to the v-model dogs variable to use in html
+          dogImgs.value = await dogCeoImages.json(); // set the received images to the v-model dogs variable to use in html
           // console.log(this.dogImgs.message[0]);
         }
 
