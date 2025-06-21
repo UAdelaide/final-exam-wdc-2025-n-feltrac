@@ -35,7 +35,7 @@ router.get('/me', (req, res) => { // shows session!
   res.json(req.session.user);
 });
 
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
