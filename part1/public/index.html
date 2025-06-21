@@ -48,34 +48,9 @@
                 this.imageSrc = await response.json();
             }
 
-        async function loginSubmit() {
-          const response = await fetch('/api/users/login', { // get the login route
-            method: 'POST', // post request because it is not repeatable, cant login while logged in
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' }, // the route can expect json
-            body: JSON.stringify({ // send v-model username and password to route as json
-              username: username.value, // sends the username in the data() above
-              password: password.value }) // sends the password in the data() above
-            });
-
-            const result = await response.json(); // waits for route to return something to this function
-            if (result.redirect) { // if the result came back with something for .redirect
-              window.location.href = result.redirect; // go to redirect location (owner/walker-dashboard.html)
-            }
-        }
-
-        onMounted(() => {
-          getDogs(); // run when app loads
-        });
-
         return {
           dogs,
-          dogImgs,
-          message,
-          username,
-          password,
-          getDogs,
-          loginSubmit
+          fetchDog
         };
       }
     }).mount('#app');
