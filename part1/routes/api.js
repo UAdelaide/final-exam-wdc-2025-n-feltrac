@@ -49,7 +49,7 @@ router.get('/walkers/summary', async(req, res) => { // not tested properly
       WHERE WalkApplications.walker_id = Users.user_id AND WalkApplications.status = 'accepted')
       WHERE Users.role = 'walker' GROUP BY Users.user_id, Users.username`);
     if(rows.length === 0) {
-      res.status(404).json({ message: "no walk requests found in database!" });
+      res.status(404).json({ message: "no ratings found in database!" });
     } else {
       res.status(200).json(rows);
     }
