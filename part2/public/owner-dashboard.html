@@ -91,7 +91,7 @@
           }
         }
 
-        async function logout() { // 
+        async function logout() { //
           const response = await fetch('/api/users/logout', {
             method: 'POST',
             credentials: 'include',
@@ -141,7 +141,7 @@
           message,
           error,
           submitWalkRequest,
-          logout
+          logout // add function to vue app so it doesnt say uninitialised
         };
       }
     }).mount('#app');
