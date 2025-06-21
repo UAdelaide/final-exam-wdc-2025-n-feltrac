@@ -66,8 +66,8 @@
         this.dogs = await response.json(); // set the v-model dogs var to the dog data from internal api call
         // console.log(this.dogs.length);
         const numDogs = this.dogs.length; // get the number of dogs in the database so we can get the right no. of pics
-        var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // get x many dogs in database
-        const dogCeoImages = await fetch(dogsString); // 
+        var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // concat num so we get right number
+        const dogCeoImages = await fetch(dogsString); //
         this.dogImgs = await dogCeoImages.json(); // get
         // console.log(this.dogImgs.message[0]);
       },
