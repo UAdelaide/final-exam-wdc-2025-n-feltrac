@@ -10,7 +10,7 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-success">Walker Dashboard</h1>
-    
+
     <button type="button" @click="logout">LOGOUT</button>
 
     <!-- Alert messages -->
@@ -99,7 +99,7 @@
           message,
           error,
           applyToWalk,
-          logout
+          logout // add function to vue app so it doesnt say uninitialised
         };
       }
     }).mount('#app');
