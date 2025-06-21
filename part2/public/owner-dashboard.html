@@ -96,7 +96,7 @@
             method: 'POST', // use a post request because logging out isnt repeatable
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ })
+            body: JSON.stringify({ }) // no need for body when logging out because it just deletes session token
           });
 
           const result = await response.json();
