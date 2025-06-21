@@ -55,6 +55,20 @@
           }
         }
 
+        async function logout() {
+          const response = await fetch('/api/users/logout', {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ })
+          });
+
+          const result = await response.json();
+          if (result.redirect) {
+            window.location.href = result.redirect; // go to redirect location
+          }
+        }
+
         async function applyToWalk(requestId) {
           try {
             const res = await fetch(`/api/walks/${requestId}/apply`, {
@@ -82,7 +96,8 @@
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');
