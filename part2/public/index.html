@@ -78,7 +78,7 @@
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' }, // the route can expect json
             body: JSON.stringify({ // send v-model username and password to route as json
-              username: this.username,
+              username: this.username, // sends the username in the data() above
               password: this.password })
           });
 
