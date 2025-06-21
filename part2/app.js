@@ -28,14 +28,14 @@ let db;
 
     // Create the database if it doesn't exist
     await connection.query('DROP DATABASE IF EXISTS DogWalkService');
-    await connection.query();
+    await connection.query('CREATE DATABASE DogWalkService');
     await connection.end();
 
     // Now connect to the created database
     db = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: '',
+      password: 'root',
       database: 'testdb'
     });
 
