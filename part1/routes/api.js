@@ -36,7 +36,7 @@ router.get('/walkrequests/open', async(req, res) => {
   }
 });
 
-router.get('/walkers/summary', async(req, res) => { // not tested
+router.get('/walkers/summary', async(req, res) => { // not tested properly
   const [rows] = await db.query(`
     SELECT Users.username AS walker_username, COUNT(WalkRatings.rating_id) AS total_ratings,
     ROUND(AVG(WalkRatings.rating), 2) AS average_rating, COUNT(WalkRequests.request_id) AS completed_walks
