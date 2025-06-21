@@ -40,7 +40,7 @@ router.post('/logout', (req, res) => {
     return res.status(401).json({ error: 'Not logged in' }); // return an error message if not logged in
   }
   req.session.destroy(); // delete session token
-  res.status(201).json({ redirect: "/" }); // redirect user back to homepage to login again
+  res.status(200).json({ redirect: "/" }); // redirect user back to homepage to login again
 });
 
 // POST login (dummy version)
@@ -60,9 +60,9 @@ router.post('/login', async (req, res) => {
     req.session.user = { id: rows[0].user_id, username: rows[0].username };
     // redirect here if owner or walker
     if(rows[0].role === "owner") {
-      res.json({ redirect: "/owner-dashboard.html" }); // send redirect location back
+      res.status(205).json({ redirect: "/owner-dashboard.html" }); // send redirect location back
     } else {
-      res.json({ redirect: "/walker-dashboard.html" });
+      res.status(206).json({ redirect: "/walker-dashboard.html" });
     }
     // res.json({ message: 'Login successful', user: rows[0] }); // remove this
   } catch (error) {
