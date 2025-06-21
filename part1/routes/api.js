@@ -37,23 +37,6 @@ router.get('/walkrequests/open', async(req, res) => {
 });
 
 
-router.get('/walkrequests/open', async(req, res) => {
-  try {
-    const [rows] = await db.query(`
-    SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time,
-    WalkRequests.duration_minutes, WalkRequests.location, Users.username AS owner_username
-    FROM WalkRequests JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
-    JOIN Users ON Dogs.owner_id = Users.user_id
-    WHERE WalkRequests.status = 'open'`);
-    if(rows.length === 0) {
-      res.status(404).json({ message: "no walk requests found in database!" });
-    } else {
-      res.status(200).json(rows);
-    }
-  } catch (error) {
-    res.status(500).json({ message: "an error occurred" });
-  }
-});
 router.get('/walkers/summary', async(req, res) => { // not tested properly
   const [rows] = await db.query(`
     SELECT Users.username AS walker_username, COUNT(WalkRatings.rating_id) AS total_ratings,
@@ -63,6 +46,16 @@ router.get('/walkers/summary', async(req, res) => { // not tested properly
     AND WalkRequests.request_id IN (SELECT request_id FROM WalkApplications
     WHERE WalkApplications.walker_id = Users.user_id AND WalkApplications.status = 'accepted')
     WHERE Users.role = 'walker' GROUP BY Users.user_id, Users.username`);
+    if(rows.length === 0) {
+      res.status(404).json({ message: "no walk requests found in database!" });
+    } else {
+      res.status(200).json(rows);
+    }
+  } catch (error) {
+    res.status(500).json({ message: "an error occurred" });
+  }
+});
+
   res.status(200).json(rows);
 });
 
