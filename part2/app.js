@@ -113,10 +113,12 @@ let db;
     `);
 
     await db.execute(`
-    INSERT INTO books (title, author) VALUES
-    ('1984', 'George Orwell'),
-    ('To Kill a Mockingbird', 'Harper Lee'),
-    ('Brave New World', 'Aldous Huxley')
+    INSERT INTO Dogs (owner_id, name, size)
+    VALUES ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+    ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+    ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Carol Jr', 'large'),
+    ((SELECT user_id FROM Users WHERE username = 'owner123'), 'Rush', 'medium'),
+    ((SELECT user_id FROM Users WHERE username = 'owner123'), 'Treble', 'large')
     `);
 
     await db.execute(`
