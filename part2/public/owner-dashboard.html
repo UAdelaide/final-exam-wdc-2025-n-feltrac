@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <button type="button" ></button>
+    <button type="button" @click="logout"></button>
 
     <!-- Success or error messages -->
     <div v-if="message" class="alert alert-info">{{ message }}</div>
@@ -90,6 +90,8 @@
             error.value = 'Failed to load walk requests';
           }
         }
+
+        
 
         async function submitWalkRequest() {
           try {
