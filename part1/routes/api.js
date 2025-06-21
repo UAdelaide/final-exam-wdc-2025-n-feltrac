@@ -32,7 +32,7 @@ router.get('/walkrequests/open', async(req, res) => {
       res.status(200).json(rows);
     }
   } catch (error) {
-    res.json({ message: "an error occurred" });
+    res.status(500).json({ message: "an error occurred" });
   }
 });
 
