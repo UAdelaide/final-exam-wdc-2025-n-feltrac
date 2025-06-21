@@ -62,8 +62,8 @@
         };
       },
       async mounted() { // run when vue app starts and page is loaded
-        const response = await fetch('/api/dogs');
-        this.dogs = await response.json();
+        const response = await fetch('/api/dogs'); // get dogs route to get dog data
+        this.dogs = await response.json(); // set the 
         console.log(this.dogs.length);
         const numDogs = this.dogs.length;
         var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // get x many dogs
