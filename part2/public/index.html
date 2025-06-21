@@ -72,8 +72,8 @@
         // console.log(this.dogImgs.message[0]);
       },
       methods: {
-        async loginSubmit() { // login function
-          const response = await fetch('/api/users/login', {
+        async loginSubmit() { // login function for button
+          const response = await fetch('/api/users/login', { // get the login route
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
