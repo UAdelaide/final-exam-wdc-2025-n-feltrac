@@ -39,12 +39,12 @@ router.get('/walkrequests/open', async(req, res) => {
 router.get('/walkers/summary', async(req, res) => { // not tested
   const [rows] = await db.query(`
     SELECT Users.username AS walker_username, COUNT(WalkRatings.rating_id) AS total_ratings,
-ROUND(AVG(WalkRatings.rating), 2) AS average_rating, COUNT(WalkRequests.request_id) AS completed_walks
-FROM Users INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
-INNER JOIN WalkRequests ON WalkRequests.status = 'completed'
-AND WalkRequests.request_id IN (SELECT request_id FROM WalkApplications
-WHERE WalkApplications.walker_id = Users.user_id AND WalkApplications.status = 'accepted')
-WHERE Users.role = 'walker' GROUP BY Users.user_id, Users.username`);
+    ROUND(AVG(WalkRatings.rating), 2) AS average_rating, COUNT(WalkRequests.request_id) AS completed_walks
+    FROM Users INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
+    INNER JOIN WalkRequests ON WalkRequests.status = 'completed'
+    AND WalkRequests.request_id IN (SELECT request_id FROM WalkApplications
+    WHERE WalkApplications.walker_id = Users.user_id AND WalkApplications.status = 'accepted')
+    WHERE Users.role = 'walker' GROUP BY Users.user_id, Users.username`);
   res.status(200).json(rows);
 });
 
