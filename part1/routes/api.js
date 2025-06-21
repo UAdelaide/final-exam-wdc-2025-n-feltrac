@@ -8,7 +8,9 @@ router.get('/dogs', async(req, res) => {
     const [rows] = await db.query(`
     SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs
     INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
-    if
+    if(rows.length === 0) {
+      
+    }
     res.json(rows);
   } catch (error) {
     res.json({ message: "an error occurred" });
