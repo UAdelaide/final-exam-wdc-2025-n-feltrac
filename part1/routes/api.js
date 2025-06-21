@@ -19,13 +19,19 @@ router.get('/dogs', async(req, res) => {
 });
 
 router.get('/walkrequests/open', async(req, res) => {
-  const [rows] = await db.query(`
-    SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time,
-    WalkRequests.duration_minutes, WalkRequests.location, Users.username AS owner_username
-    FROM WalkRequests JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
-    JOIN Users ON Dogs.owner_id = Users.user_id
-    WHERE WalkRequests.status = 'open'`);
-  res.json(rows);
+
+  try {
+    const [rows] = await db.query(`
+    SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs
+    INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
+    if(rows.length === 0) {
+      res.json({ message: "no dogs found in database!" });
+    } else {
+      res.json(rows);
+    }
+  } catch (error) {
+    res.json({ message: "an error occurred" });
+  }
 });
 
 router.get('/walkers/summary', async(req, res) => {
