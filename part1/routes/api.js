@@ -11,9 +11,8 @@ router.get('/dogs', async(req, res) => {
     if(rows.length === 0) {
       res.json({ message: "no dogs found in database!" });
     } else {
-      
+      res.json(rows);
     }
-    res.json(rows);
   } catch (error) {
     res.json({ message: "an error occurred" });
   }
