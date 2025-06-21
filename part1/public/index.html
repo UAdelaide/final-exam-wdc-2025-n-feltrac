@@ -20,23 +20,23 @@
     </div>
 
     <script>
-    const { createApp, ref, onMounted } = Vue;
+        const { createApp, ref, onMounted } = Vue;
 
-    createApp({
-      setup() {
-        var imageSrc = ref([]);
+        createApp({
+        setup() {
+            var imageSrc = ref([]);
 
-        async function fetchDog() {
-            const response = await fetch ('https://dog.ceo/api/breeds/image/random');
-            this.imageSrc = await response.json();
+            async function fetchDog() {
+                const response = await fetch ('https://dog.ceo/api/breeds/image/random');
+                this.imageSrc = await response.json();
+            }
+
+            return {
+            dogs,
+            fetchDog
+            };
         }
-
-        return {
-          dogs,
-          fetchDog
-        };
-      }
-    }).mount('#app');
+        }).mount('#app');
   </script>
 
 </body>
