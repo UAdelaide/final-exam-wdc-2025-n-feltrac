@@ -10,7 +10,7 @@ router.get('/dogs', async(req, res) => {
     INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
   res.json(rows);
   } catch (error) {
-    res.json({ message: "no dogs found in database! "})
+    res.json({ message: "no dogs found in database!" });
   }
 });
 
