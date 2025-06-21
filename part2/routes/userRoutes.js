@@ -40,7 +40,7 @@ router.post('/logout', (req, res) => {
     return res.status(401).json({ error: 'Not logged in' });
   }
   req.session.destroy();
-  res.json({ redirect: "/index.html" });
+  res.json({ redirect: "/" });
 });
 
 // POST login (dummy version)
