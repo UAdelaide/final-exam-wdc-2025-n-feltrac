@@ -56,7 +56,4 @@ router.get('/walkers/summary', async(req, res) => { // not tested properly
   }
 });
 
-  res.status(200).json(rows);
-});
-
 module.exports = router;
