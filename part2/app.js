@@ -104,13 +104,16 @@ let db;
     `);
 
     await db.execute(`
-    INSERT INTO books (title, author) VALUES
-    ('1984', 'George Orwell'),
-    ('To Kill a Mockingbird', 'Harper Lee'),
-    ('Brave New World', 'Aldous Huxley')
+    INSERT INTO Users (username, email, password_hash, role)
+    VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+    ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+    ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+    ('walker123', 'walker@example.com', 'hashed000', 'walker'),
+
+    ('owner123', 'owner@example.com', 'hashed999', 'owner');
     `);
 
-    
+
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
