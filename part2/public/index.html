@@ -50,28 +50,29 @@
   </div>
 
   <script>
-    const { createApp, ref, onMounted } = Vue;
-
+    const { createApp } = Vue;
     createApp({
-      setup() {
-        var dogs = ref({});
-        var dogImgs = ref({});
-        var message = ref('Welcome to the Dog Walking Service!');
-        var username = ref('');
-        var password = ref('');
-
-        async function getDogs() {
-          const response = await fetch('/api/dogs'); // get dogs route to get dog data
-          this.dogs = await response.json(); // set the v-model dogs var to the dog data from internal api call
-          // console.log(this.dogs.length);
-          const numDogs = this.dogs.length; // get the number of dogs in the database so we can get the right no. of pics
-          var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // concat num so we get right no. in url
-          const dogCeoImages = await fetch(dogsString); // fetch x number of random pics from dog.ceo
-          this.dogImgs = await dogCeoImages.json(); // set the received images to the v-model dogs variable to use in html
-          // console.log(this.dogImgs.message[0]);
-        }
-
-        async function loginSubmit() {
+      data() {
+        return {
+          dogs: null,
+          dogImgs: null,
+          message: 'Welcome to the Dog Walking Service!',
+          username: '',
+          password: ''
+        };
+      },
+      async mounted() { // run when vue app starts and page is loaded
+        const response = await fetch('/api/dogs'); // get dogs route to get dog data
+        this.dogs = await response.json(); // set the v-model dogs var to the dog data from internal api call
+        // console.log(this.dogs.length);
+        const numDogs = this.dogs.length; // get the number of dogs in the database so we can get the right no. of pics
+        var dogsString = 'https://dog.ceo/api/breeds/image/random/' + numDogs; // concat num so we get right no. in url
+        const dogCeoImages = await fetch(dogsString); // fetch x number of random pics from dog.ceo
+        this.dogImgs = await dogCeoImages.json(); // set the received images to the v-model dogs variable to use in html
+        // console.log(this.dogImgs.message[0]);
+      },
+      methods: {
+        async loginSubmit() { // login function for button
           const response = await fetch('/api/users/login', { // get the login route
             method: 'POST', // post request because it is not repeatable, cant login while logged in
             credentials: 'include',
@@ -79,27 +80,13 @@
             body: JSON.stringify({ // send v-model username and password to route as json
               username: this.username, // sends the username in the data() above
               password: this.password }) // sends the password in the data() above
-            });
+          });
 
-            const result = await response.json(); // waits for route to return something to this function
-            if (result.redirect) { // if the result came back with something for .redirect
-              window.location.href = result.redirect; // go to redirect location (owner/walker-dashboard.html)
-            }
+          const result = await response.json(); // waits for route to return something to this function
+          if (result.redirect) { // if the result came back with something for .redirect
+            window.location.href = result.redirect; // go to redirect location (owner/walker-dashboard.html)
+          }
         }
-
-        onMounted(() => {
-          getDogs();
-        });
-
-        return {
-          dogs,
-          dogImgs,
-          message,
-          username,
-          password,
-          getDogs,
-          loginSubmit
-        };
       }
     }).mount('#app');
   </script>
