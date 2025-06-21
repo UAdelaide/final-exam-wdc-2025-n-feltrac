@@ -27,9 +27,9 @@ router.get('/walkrequests/open', async(req, res) => {
     JOIN Users ON Dogs.owner_id = Users.user_id
     WHERE WalkRequests.status = 'open'`);
     if(rows.length === 0) {
-      res.json({ message: "no walk requests found in database!" });
+      res.status(404).json({ message: "no walk requests found in database!" });
     } else {
-      res.json(rows);
+      res.status(200).json(rows);
     }
   } catch (error) {
     res.json({ message: "an error occurred" });
