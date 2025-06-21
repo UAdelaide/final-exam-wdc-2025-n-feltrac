@@ -37,6 +37,7 @@ router.get('/walkrequests/open', async(req, res) => {
 });
 
 
+
 router.get('/walkers/summary', async(req, res) => { // not tested properly
   try {
     const [rows] = await db.query(`
